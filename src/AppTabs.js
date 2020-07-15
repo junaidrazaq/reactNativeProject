@@ -1,33 +1,30 @@
 import React, { useContext } from 'react'
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import Center from './Center'
+import Center from './ScreenContainer'
 import { Text, Button } from "react-native"
 import { AuthContext } from './AuthProvider';
 import { AntDesign } from "@expo/vector-icons"
+import { ScreenContainer } from 'react-native-screens';
 
 const Tabs = createBottomTabNavigator();
 
 // HOME--TAB
 function Home(){
-    const {logout} = useContext(AuthContext);
+    const {signOut} = useContext(AuthContext);
     return (
-    <Center>
+      <ScreenContainer>
         <Text style={{paddingBottom:10}}>Home</Text>
         <Button
             color='black'
             title="   l o g  o u t   "
-            onPress={() => logout()}
+            onPress={() => signOut()}
         />
-    </Center>)
+      </ScreenContainer>)
 }
 
 // SEARCH--TAB
 function Search(){
-    return (
-    <Center>
-        <Text>search</Text>
-    </Center>)
-}
+    return (<Text>search</Text>) }
 
 
 export default function AppTabs() {
